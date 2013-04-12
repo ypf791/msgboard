@@ -1,4 +1,6 @@
 class MainController < ApplicationController
+	http_basic_authenticate_with :name => "msgtest", :password => "test"
+
 	def index
 		@posts = Post.all
 		@new_post = Post.new
