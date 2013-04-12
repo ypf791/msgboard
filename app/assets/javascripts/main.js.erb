@@ -1,0 +1,44 @@
+function edit(id)
+{
+	var tr = $('#tr_' + id);
+	var td_name = tr.find('.name');
+	var td_msg = tr.find('.msg');
+	var name_text = td_name.find('.not_editing').text();
+	var msg_text = td_msg.find('.not_editing').text();
+
+	td_name.find('.editing').html('<input type="text" class="editing_name" size="30" value="' + name_text + '" />');
+	td_msg.find('.editing').html('<textarea cols="30" rows="5" class="editing_msg">' + msg_text + '</textarea>');
+
+	tr.find('.not_editing').hide();
+	tr.find('.editing').show();
+}
+
+function done(id)
+{
+	var tr = $('#tr_' + id);
+	var td_name = tr.find('.name');
+	var td_msg = tr.find('.msg');
+	var name_text = td_name.find('.editing_name').val();
+	var msg_text = td_msg.find('.editing_msg').val();
+
+	$.ajax(
+		{
+			type: 'POST',
+			url: '/main/' + id,
+			data: { _method: 'PUT', 'post': { id: id, name: name_text, msg: msg_text}},
+			dataType: 'script'
+		});
+}
+
+function discard(id)
+{
+	var tr = $('#tr_' + id);
+	var td_name = tr.find('.name');
+	var td_msg = tr.find('.msg');
+
+	td_name.find('.editing').html('');
+	td_msg.find('.editing').html('');
+
+	tr.find('.editing').hide();
+	tr.find('.not_editing').show();
+}

@@ -1,0 +1,16 @@
+<tr id="tr_<%= post.id %>">
+	<td class="name">
+		<span class="not_editing"><%= post.name %></span>
+		<span class="editing"></span>
+	</td>
+	<td class="msg">
+		<span class="not_editing"><%= post.msg %></span>
+		<span class="editing"></span>
+	</td>
+	<td class="edit">
+		<span class="not_editing"><%= button_to_function "Edit", "edit(#{post.id})", :class => "edit_button" %></span>
+		<span class="editing"><%= button_to_function "Done", "done(#{post.id})", :class => "done_button" %><br/><%= button_to_function "Discard", "discard(#{post.id})", :class => "discard_button" %></span>
+	</td>
+	<td class="delete"><%= button_to "Delete", { :controller => "main", :action => "destroy", :id => post.id }, :confirm => "Delete this post?", :method => :delete, :remote => true, :class => "delete_button" %></td>
+</tr>
+

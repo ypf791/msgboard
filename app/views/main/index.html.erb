@@ -1,0 +1,45 @@
+<div id="outer">
+	<div id="header">
+		<h1>Message Board</h1>
+	</div>
+
+	<div id="main">
+		<div id="table_container">
+			<table id="post_table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Message</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @posts.each do |post| %>
+						<%= render :partial => "post", :locals => { :post => post } %>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<br class="clear"/>
+	</div>
+
+
+	<div id="new_post_container">
+		<%= form_for @new_post, :url => create_path, :remote => true, :html => { :class => "new_post_form" } do |f| %>
+			<div class="field">
+				<%= f.label "Name" %><br class="clear"/>
+				<%= f.text_field :name, :size => 30 %>
+			</div>
+			<div class="field">
+				<%= f.label "Message" %><br class="clear"/>
+				<%= f.text_area :msg, :size => "30x5" %>
+			</div>
+			<div class="action">
+				<%= f.submit "Submit", :class => "submit_button" %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<br class="clear"/>
