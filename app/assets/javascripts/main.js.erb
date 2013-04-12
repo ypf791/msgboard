@@ -42,3 +42,11 @@ function discard(id)
 	tr.find('.editing').hide();
 	tr.find('.not_editing').show();
 }
+$(document).ready(function()
+	{
+		$('.submit_button').bind('click', function()
+			{
+				$('.new_post_form').submit();
+				$(this).attr('disabled', true);
+			});
+	});

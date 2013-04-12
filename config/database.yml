@@ -12,9 +12,9 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: test
+  database: djshen_test_msgboard
   pool: 5
-  username: test
+  username: djshen_test
   password: test
   socket: /var/run/mysqld/mysqld.sock
 
@@ -25,9 +25,9 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: test
+  database: djshen_test_msgboard
   pool: 5
-  username: test
+  username: djshen_test
   password: test
   socket: /var/run/mysqld/mysqld.sock
 
@@ -35,8 +35,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: test
+  database: djshen_test_msgboard
   pool: 5
-  username: test
+  username: djshen_test
   password: test
   socket: /var/run/mysqld/mysqld.sock
